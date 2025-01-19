@@ -1,13 +1,11 @@
-# Sample Hardhat Project
+# Ethereum smart contract demo
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
+This is a demo smart contract + an api to view contract info and transactions.
 
-Try running some of the following tasks:
+- Contract is deployed to Sepolia (`addr 0xE6cD919827849567c9556320AEd6039413288A0c`)
+- Run `cd api && npm run serve` to serve the api and open [http://localhost:3000](http://localhost:3000)
+- Run `cd contract && npm run transfer` to perform a transfer of tokens within this contract
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat ignition deploy ./ignition/modules/Lock.ts
-```
+This is just a demo, don't expect much of it 😇
+
+— Jędrzej Lewandowski

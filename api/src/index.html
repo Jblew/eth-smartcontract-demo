@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Token Info</title>
+</head>
+<body>
+  <h1>Token Information</h1>
+  <div id="token-info"></div>
+  
+  <h2>Check Balance</h2>
+  Address:
+  <input type="text" id="address" value="0x2a8F5700BBbeEe3582F6BFd520D54293B419579c">
+  <button onclick="getBalance()">Get Balance</button>
+  <div id="balance"></div>
+  
+  <h2>Transaction History</h2>
+  From block:
+  <input type="number" id="fromBlock" value="7527315">
+  <button onclick="getTransactions()">Get Transactions</button>
+  <div id="transactions"></div>
+
+  <script>
+    async function fetchTokenInfo() {
+      const response = await fetch('/api/token/info');
+      const data = await response.json();
+      document.getElementById('token-info').innerText = JSON.stringify(data, null, 2);
+    }
+
+    async function getBalance() {
+      const address = document.getElementById('address').value;
+      const response = await fetch(`/api/token/balance/${address}`);
+      const data = await response.json();
+      document.getElementById('balance').innerText = JSON.stringify(data, null, 2);
+    }
+
+    async function getTransactions() {
+      const fromBlock = document.getElementById('fromBlock').value;
+      const response = await fetch(`/api/token/transactions?fromBlock=${fromBlock}`);
+      const data = await response.json();
+      document.getElementById('transactions').innerText = JSON.stringify(data, null, 2);
+    }
+
+    // Fetch token info, balance, and transactions on page load
+    fetchTokenInfo();
+    getBalance();
+    getTransactions();
+  </script>
+</body>
+</html>
