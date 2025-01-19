@@ -9,3 +9,9 @@ This is a demo smart contract + an api to view contract info and transactions.
 This is just a demo, don't expect much of it 😇
 
 — Jędrzej Lewandowski
+
+
+
+## Screenshot
+
+![Screenshot](./screenshot.png)

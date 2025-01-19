@@ -4,42 +4,66 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Token Info</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0 auto;
+      max-width: 1280px;
+      padding: 2em;
+      color: #333;
+    }
+    h1,h2,h3 {
+      margin-top: 3rem;
+    }
+    code {
+      background-color: #eee;
+      padding: 0.5rem;
+      display: block;
+      margin-bottom: 1rem;
+    }
+  </style>
 </head>
 <body>
   <h1>Token Information</h1>
-  <div id="token-info"></div>
+  <div><code><pre id="token-info">Loading...</pre></code></div>
   
   <h2>Check Balance</h2>
   Address:
   <input type="text" id="address" value="0x2a8F5700BBbeEe3582F6BFd520D54293B419579c">
   <button onclick="getBalance()">Get Balance</button>
-  <div id="balance"></div>
+  <div><code><pre id="balance">Loading...</pre></code></div>
   
   <h2>Transaction History</h2>
   From block:
   <input type="number" id="fromBlock" value="7527315">
   <button onclick="getTransactions()">Get Transactions</button>
-  <div id="transactions"></div>
+  <div><code><pre id="transactions">Loading...</pre></code></div>
 
   <script>
     async function fetchTokenInfo() {
+      const elem = document.getElementById('token-info');
+      elem.innerText = 'Loading...';
       const response = await fetch('/api/token/info');
       const data = await response.json();
-      document.getElementById('token-info').innerText = JSON.stringify(data, null, 2);
+      elem.innerText = JSON.stringify(data, null, 2);
     }
 
     async function getBalance() {
       const address = document.getElementById('address').value;
+      const elem = document.getElementById('balance');
+      elem.innerText = 'Loading...';
       const response = await fetch(`/api/token/balance/${address}`);
       const data = await response.json();
-      document.getElementById('balance').innerText = JSON.stringify(data, null, 2);
+      elem.innerText = JSON.stringify(data, null, 2);
     }
 
     async function getTransactions() {
       const fromBlock = document.getElementById('fromBlock').value;
+      const elem = document.getElementById('transactions');
+      elem.innerText = 'Loading...';
       const response = await fetch(`/api/token/transactions?fromBlock=${fromBlock}`);
       const data = await response.json();
-      document.getElementById('transactions').innerText = JSON.stringify(data, null, 2);
+      elem.innerText = JSON.stringify(data, null, 2);
     }
 
     // Fetch token info, balance, and transactions on page load
