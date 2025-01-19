@@ -1,0 +1,17 @@
+{
+  "name": "jedrzejlewandowski_api",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "serve": "ts-node src/index.ts"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "description": "",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "express": "^4.21.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}
