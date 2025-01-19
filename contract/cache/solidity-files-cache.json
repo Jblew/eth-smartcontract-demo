@@ -1,9 +1,9 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/Users/macbook/code/chain1/contracts/Token.sol": {
-      "lastModificationDate": 1737297765708,
-      "contentHash": "f43b58531e31bfe764fc90cd2413d82c",
+    "/Users/macbook/code/chain1/contract/contracts/Token.sol": {
+      "lastModificationDate": 1737309750281,
+      "contentHash": "8efc04321330cec8268a1f1eccf283b7",
       "sourceName": "contracts/Token.sol",
       "solcConfig": {
         "version": "0.8.28",
